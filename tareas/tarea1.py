@@ -81,6 +81,22 @@ def leerImprimir():
 
 
 #Punto 4
+def esPrimo(n):
+    """
+    La función muestra si el valor n es primo o no
+    Args:
+        n ([int]): numero entero mayor a 1
+    Returns:
+        [bool]: True si es primo, False si no lo es
+    """
+    ans = True
+    for i in range(2, n):
+        # Evalua si el numero es divisible entre numeros del rango(2, number)
+        if (n % i == 0):
+            ans = False
+    return ans
+
+
 def mostrarPrimos(n):
     """
     La función imprime los numeros primos entre 1 y n, posteriormente imprime
