@@ -105,6 +105,7 @@ def mostrarPrimos(n):
         n ([int]): entero mayor a 1
     """
     listaPrimos = []
+     print("Números primos entre 1 y", n)
     for i in range(2, n + 1):
         if (esPrimo(i)):
             listaPrimos.append(i)
