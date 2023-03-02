@@ -1,9 +1,8 @@
 #include <stdio.h>
 
-
 int main()
 {
-    int t, n, i, j, x, k, flag, subFlag;
+    int t, n, i, j, x, k, flag;
     int disponible;
     int p[100001], q[100001];
     scanf("%d", &t);
@@ -22,46 +21,34 @@ int main()
         }
         flag = 0;
         j = 0;
-        subFlag = 0;
-        while (j < n && flag == 0)
-        {
-            disponible = 0;
-            k = j;
-            while (k < n && disponible >= 0)
-            {
-                disponible += p[k];
-                disponible -= q[k];
-                if (k == n - 1)
-                {
-                    subFlag = 1;
-                }
-                k++;
-            }
 
-            if (subFlag == 1)
+        disponible = 0;
+        int s = 0;
+        int contador = 0;
+        while (j < 2 * n && contador < n)
+        {
+            if (disponible + p[s] - q[s] >= 0)
             {
-                for (k = 0; k < j; k++)
+                if (flag == 0)
                 {
-                    disponible += p[k];
-                    disponible -= q[k];
-                }
-                if (disponible >= 0)
-                {
+                    x = s;
                     flag = 1;
-                    x = j;
                 }
+                disponible += p[s];
+                disponible -= q[s];
+                contador++;
             }
+            else
+            {
+                disponible = 0;
+                flag = 0;
+                contador = 0;
+            }
+            s = (s + 1) % n;
             j++;
         }
 
-        disponible = 0;
-        for (j = 0; j < n; j++)
-        {
-            disponible += p[j];
-            disponible -= q[j];
-        }
-
-        if (flag == 1 && disponible >= 0)
+        if (contador == n)
         {
             printf("Case %d: Possible from station %d\n", i, x + 1);
         }
