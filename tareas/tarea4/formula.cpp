@@ -7,22 +7,35 @@ using namespace std;
 
 void winner(vector<int> points)
 {
-    int max = points[0];
+    int max = points[0], cont = 0;
     for (int i = 1; i < points.size(); i++)
     {
         if (max < points[i])
         {
             max = points[i];
+            cont = i;
+        }
+        if (points[i] == max)
+        {
+            cont = i;
         }
     }
+
     for (int i = 0; i < points.size(); i++)
     {
         if (points[i] == max)
         {
-            cout << i + 1;
-            printf(" ");
+            if (i != cont)
+            {
+                cout << i + 1 << " ";
+            }
+            else
+            {
+                cout << i + 1;
+            }
         }
     }
+    cout << endl;
 }
 
 void sumPoints(vector<vector<int>> totalGrandP, vector<vector<int>> totalSystems, int nG, int nP, int nSys)
@@ -65,7 +78,6 @@ void sumPoints(vector<vector<int>> totalGrandP, vector<vector<int>> totalSystems
         }
 
         winner(sumPt);
-        printf("\n");
         sumPt.clear();
     }
 }
