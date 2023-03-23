@@ -1,3 +1,21 @@
+/* 
+Name: Juan Diego Valencia Alomia
+Code: 8977467
+UVa code: 11223
+
+Complejidad: La complejiadad de este programa dependerá del tamaño de la cadena que se le ingrese y 
+de la posición donde se encuentre la letra que se busca en el vector del codigo morse, por esta 
+razón tiene mejor y peor caso.
+
+    - Peor caso: En este caso la cadena de morse será compuesta por la penúltima letra del vector key
+    por lo que al hacer la comparación se genera una complejidad O(cad.length() + ans.size() * key.size()),
+    en sí, esta complejidad es O(n), por lo que key tiene tamaño constante 
+    
+    - Mejor caso: el mejor caso será que la cadena será compuesta de solo A, es decir la primer letra del 
+    vector key, por lo que su complejidad será O(cad.length() + ans.size()), es decir O(n)
+*/
+
+
 #include <iostream>
 #include <stdio.h>
 #include <string>
