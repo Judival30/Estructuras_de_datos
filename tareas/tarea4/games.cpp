@@ -20,10 +20,10 @@ int find(vector<string> alpha, string letter)
     return ans;
 }
 
-string compare(string s1, string s2)
+string compare(string s1, string s2, int szs, vector<string> alpha)
 {
-    int n, m, flag = 0;
-    string ans = "";
+    int n, m, flag = 0, x;
+    string ans = "", letter, next;
     if (s1.size() > s2.size())
     {
         n = s1.size();
@@ -36,10 +36,8 @@ string compare(string s1, string s2)
     }
     for (int i = 0; i < n and flag == 0; i++)
     {
-
-        if (i == m - 1)
+        if (i == m)
         {
-            ans += s1[i];
             flag = 1;
         }
         else if (s1[i] != s2[i])
@@ -60,7 +58,7 @@ int main()
     int n = 1;
     string word;
     vector<string> list;
-    string s1, s2, wordAns, letter;
+    string s1, s2, wordAns, letter, ref;
     while (n != 0)
     {
         cin >> n;
@@ -77,28 +75,52 @@ int main()
             // escoger los dos elementos centrales
             s1 = list[(n / 2) - 1];
             s2 = list[n / 2];
+            wordAns = compare(s1, s2, n, alpha);
 
-            wordAns = compare(s1, s2);
+            /* cout << endl
+                 << s1 << endl
+                 << s2 << endl
+                 << wordAns << endl
+                 << endl; */
 
             if (wordAns == s1 || wordAns == s2)
             {
                 cout << wordAns << endl;
             }
+            else if (s1.size() < s2.size() && wordAns.size() == s1.size() - 1)
+            {
+                cout << s1 << endl;
+            }
             else
             {
                 int x;
-                if (wordAns.size() > 0)
+                letter = s1[wordAns.size()];
+                x = find(alpha, letter);
+                ref = wordAns;
+                ref += alpha[x];
+                if (ref == s2)
                 {
-                    letter = s1[wordAns.size()];
-                    x = find(alpha, letter);
-                    wordAns += alpha[x];
-                    cout << wordAns << endl;
+                    wordAns += s1[wordAns.size()];
+                    if (s1[wordAns.size()] == 'Z')
+                    {
+                        wordAns += s1[wordAns.size()];
+                        letter = s1[wordAns.size()];
+                        x = find(alpha, letter);
+                        wordAns += alpha[x];
+                        cout << wordAns << endl;
+                    }
+                    else
+                    {
+                        letter = s1[wordAns.size()];
+                        x = find(alpha, letter);
+                        wordAns += alpha[x];
+                        cout << wordAns << endl;
+                    }
                 }
                 else
                 {
-                    letter = s1[0];
-                    x = find(alpha, letter);
-                    cout << alpha[x] << endl;
+                    wordAns += alpha[x];
+                    cout << wordAns << endl;
                 }
             }
             list.clear();
