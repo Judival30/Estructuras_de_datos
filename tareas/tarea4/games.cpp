@@ -77,12 +77,6 @@ int main()
             s2 = list[n / 2];
             wordAns = compare(s1, s2, n, alpha);
 
-            /* cout << endl
-                 << s1 << endl
-                 << s2 << endl
-                 << wordAns << endl
-                 << endl; */
-
             if (wordAns == s1 || wordAns == s2)
             {
                 cout << wordAns << endl;
