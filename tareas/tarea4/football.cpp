@@ -6,6 +6,27 @@
 
 using namespace std;
 
+string transformCad(string cad)
+{
+    string comp, letter;
+    int asc;
+    for (int i = 0; i < cad.size(); i++)
+    {
+        asc = cad[i];
+        if (asc >= 97 and asc <= 122)
+        {
+            letter = cad[i] - 32;
+            comp += letter;
+        }
+        else
+        {
+            letter = cad[i];
+            comp += letter;
+        }
+    }
+    return comp;
+}
+
 class Team
 {
 public:
@@ -61,7 +82,9 @@ public:
         }
         else
         {
-            ans = name.compare(est.name) < 0;
+            string tname = transformCad(name), comp = transformCad(est.name);
+
+            ans = tname < comp;
         }
         return ans;
     }
