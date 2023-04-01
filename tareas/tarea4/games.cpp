@@ -1,3 +1,21 @@
+/*
+Name: Juan Diego Valencia
+code: 8977467
+tarea4 - Estructuras de datos - 2023-1
+UVa code: 1610
+
+Complejidad computacional:
+
+Para empezar, se le ingresan n palabras, por lo que al usar la funciíon sort, la complejidad
+en un primer instante es de nlog(n). En un segundo momento se seleccionan las cadenas que queden
+justo en el centro y se llama a la función compare, la cual compara las dos cadenas hasta que 
+dejen de ser iguales, por lo que llamaremos a este parametro m, que en el peor caso será el tamaño 
+de la cadena ingresada. Por ultimó en unos casos se añadirá a la cadena resultante otra letra que 
+será buscada en el alfabeto, por lo que en el peor caso será 26, finalmente la complejidad del 
+programa por inspección será: O(nlog(n) + m + 26).
+*/
+
+
 #include <iostream>
 #include <stdio.h>
 #include <string>
