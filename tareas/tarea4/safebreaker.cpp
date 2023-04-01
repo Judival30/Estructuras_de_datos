@@ -1,8 +1,8 @@
 /*
 Name: Juan Diego Valencia
-code:
+code: 8977467
 tarea4 - Estructuras de datos - 2023-1
-UVa code:
+UVa code: 296
 
 Complejidad computacional:
 la complejidad del programa se puede decir que es en cierta manera constante, ya que
