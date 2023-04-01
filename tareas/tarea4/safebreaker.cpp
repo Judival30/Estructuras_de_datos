@@ -1,3 +1,27 @@
+/*
+Name: Juan Diego Valencia
+code:
+tarea4 - Estructuras de datos - 2023-1
+UVa code:
+
+Complejidad computacional:
+la complejidad del programa se puede decir que es en cierta manera constante, ya que
+se puede describir como O(9999 * 4 * n), el 9999 corresponde a la generación de todos los
+condigos posibles, ya que este ejercio se resuelve a la fuerza, el 4 se refiera a la segmentación
+de cada numero en el vector, por último n correponde a la cantidad de pistas que se ingrese por lo que
+interará en la función possible cuantas veces tenga pistas.
+
+Cabe resaltar que el programa puede variar el tiempo de ejecución con ciertos factores, por ejemplo,
+si encuentra dos numeros possibles significa que ya es imposible por lo que terminaría su ejeción, además
+en la función possible depende de que ans se mantena en true, por lo que si el primer if no se cumple no continuará.
+Sin embargo, para los casos donde solo hay un numero posible o es indeterminado el programa tendrá
+que recorrer todos los 9999 codigos.
+
+En sí la complejidad es O(n) siendo n la cantidad de pistas, sin embargo con una pendiente muy 
+grande lo que hace que sea un poco pesado.
+
+*/
+
 #include <iostream>
 #include <stdio.h>
 #include <string>
@@ -58,31 +82,34 @@ bool possible(vector<int> &codeVec, vector<InfoCode> &guesses)
         {
             ans = false;
         }
-        vector<int> num1(10, 0);
-        vector<int> num2(10, 0);
-        for (int j = 0; j < 4; j++)
+        if (ans == true)
         {
-            num1[codeVec[j]]++;
-        }
-        for (int j = 0; j < 4; j++)
-        {
-            num2[guessCode[j]]++;
-        }
-        int cont2 = 0;
-        for (int j = 0; j < 10; j++)
-        {
-            if (num1[j] < num2[j])
+            vector<int> num1(10, 0);
+            vector<int> num2(10, 0);
+            for (int j = 0; j < 4; j++)
             {
-                cont2 += num1[j];
+                num1[codeVec[j]]++;
             }
-            else
+            for (int j = 0; j < 4; j++)
             {
-                cont2 += num2[j];
+                num2[guessCode[j]]++;
             }
-        }
-        if (cont2 - cont1 != misplaced)
-        {
-            ans = false;
+            int cont2 = 0;
+            for (int j = 0; j < 10; j++)
+            {
+                if (num1[j] < num2[j])
+                {
+                    cont2 += num1[j];
+                }
+                else
+                {
+                    cont2 += num2[j];
+                }
+            }
+            if (cont2 - cont1 != misplaced)
+            {
+                ans = false;
+            }
         }
     }
     return ans;
