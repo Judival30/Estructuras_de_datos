@@ -1,3 +1,19 @@
+/*
+Name: Juan Diego Valencia
+code:
+tarea4 - Estructuras de datos - 2023-1
+UVa code:
+
+Complejidad computacional:
+
+La complejidad computacional de este programá dependerá de dos factores, el primero
+es la cantidad de equipos que juegan (n), ya que esto representa la creación de un objeto
+por cada equipo, y segundo la cantidad de partidos (m) ya que al momento de actualizar 
+el contenido de cada objeto hay que actualizarlo tantas veces partidos se ingresen, por 
+lo tanto la complejidad es O(n * m). Además al usar la función de ordenamiento sort, cuya 
+complejidad es nlog(n) la complejidad final del programa por inspección sería O(nlog(n) + nm)
+ */
+
 #include <iostream>
 #include <stdio.h>
 #include <string>
@@ -112,15 +128,18 @@ int main()
         for (int i = 0; i < nG; i++)
         {
             cin >> home >> homeGoals >> line >> visitantGoals >> visitant;
-            for (vector<Team>::iterator it = teams.begin(); it != teams.end(); it++)
+            bool flag1 = false, flag2 = false;
+            for (vector<Team>::iterator it = teams.begin(); it != teams.end() and (flag1 == false or flag2 == false); it++)
             {
                 if ((*it).name == home)
                 {
                     (*it).update(homeGoals, visitantGoals);
+                    flag1 = true;
                 }
                 if ((*it).name == visitant)
                 {
                     (*it).update(visitantGoals, homeGoals);
+                    flag2 = true;
                 }
             }
         }
