@@ -52,4 +52,5 @@ int main()
          << endl;
     Lista result = obtenerMenores(list, 4);
     printLista(result);
+    return 0;
 }
