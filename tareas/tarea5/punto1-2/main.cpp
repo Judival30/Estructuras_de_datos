@@ -1,5 +1,5 @@
 #include "lista.h"
-#include <iostream>
+
 
 // Punto 1
 int contarOcurrencias(Lista &l, int v)
