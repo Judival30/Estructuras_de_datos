@@ -8,6 +8,10 @@ Complejidad punto 2:
 En este caso como en el punto 1 la complejidad es O(n^2) ya que se recorre n veces la lista por el uso de las funciones infolista()
 y longLista(), cabe resaltar que la función anxlista tiene implicaciones en la complejidad del algoritmo al recorrer la lista ans, sin embargo, no cambia 
 el comportamiento cuadratico de la función, por lo que la complejidad se conserva O(n^2)
+
+Explicación de uso de las funciones:
+Se hace uso del procedimiento printlist() el cual es usado para imprimir la lista. Entonces se crea en el main una lista y se llama a las dos funciones 
+analizadoras que acabamos de crear y se comprueba su funcionalidad.
 */
 
 #include "lista.h"
