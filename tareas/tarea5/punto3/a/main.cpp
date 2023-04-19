@@ -7,14 +7,14 @@ Para el desarrollo de este punto se escogió la implementación creada por el do
 sin modificar la interfaz del TAD:
 
 Complejidad:
-La función insertarEnListaOrdenada hace uso de la función infoLista() como punto de parada para encontrar la posición donde se debe insertar, por lo que
+La función insertarEnListaOrdenada hace uso de la función infoLista() como punto de parada para encontrar la posición donde se debe insertar v, por lo que
 llamaremos k al numero que corresponde a la posición donde se debe insertar v, además se usa longLista para saber el tamaño de la lista y finalmente 
-la función de insertar que tiene complejidad k, por lo tanto T(n) = n + 2k, por lo tanto demuestra un comportamiento lineal, es decir que su complejidad
-es O(n)
+la función de insertar que tiene complejidad k. Si tomamos el peor caso, donde v es mayor a todos los elementos, entonces la complejidad del for se vuelve
+la sumatoria desde 1 hasta n, por lo tanto daría un comportamieno cuadratico en el peor caso, es decir O(n^2).
 
 Explicación de uso de las funciones:
-Se hace uso del procedimiento printlist() el cual es usado para imprimir la lista. Entonces se crea en el main una lista y se llama a las dos funciones 
-analizadoras que acabamos de crear y se comprueba su funcionalidad.
+Se hace uso del procedimiento printlist() el cual es usado para imprimir la lista. Entonces se crea en el main una lista ordenada
+y se inserta los nuevos elementos con la funcion y se comprueba su funcionalidad.
 */
 #include "lista.h"
 
