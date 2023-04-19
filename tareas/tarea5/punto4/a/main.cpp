@@ -1,8 +1,26 @@
+/*
+Estructuras de datos - tarea5 - punto 4a
+Juan Diego Valencia Alomia 
+code: 8977467
+
+Para el desarrollo de este punto se escogió la implementación creada por el docente Carlos Ramirez de una lista simple, y se implementaron la función
+sin modificar la interfaz del TAD:
+
+Complejidad:
+La función concatenarListas hace uso de longLista, anxLista e infoLista entonces lo que hace es recorrer la lista2 
+para ingresar sus elementos en la lista1, por lo que al usar anxlista se recorre las lista 1 cuantas 
+veces elementos tenga lista2, por lo tanto el comportamiento es cuadratico, es decir que la complejidad es O(n^2)
+
+Explicación de uso de las funciones:
+Se hace uso del procedimiento printlist() el cual es usado para imprimir la lista. Entonces se crea en el main dos listas y se llama la función 
+pasandole las dos listas y se comprueba su funcionalidad.
+*/
 #include "lista.h"
 
 void concatenarListas(Lista &l1, Lista &l2)
 {
-    for (int i = 1; i <= l2.longLista(); i++)
+    int l2size = l2.longLista();
+    for (int i = 1; i <= l2size; i++)
     {
         l1.anxLista(l2.infoLista(i));
     }
