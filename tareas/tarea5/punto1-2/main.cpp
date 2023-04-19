@@ -1,11 +1,24 @@
+/*
+Estructuras de datos - tarea5 - punto 1 - 2
+Complejidad punto 1: 
+En este caso la complejidad es O(n^2) ya que se llama a función longLista() que tiene complejidad n y posteriormente se llama
+a la función infolista() que tiene complejidad n, por lo que se recorre la lista n veces, dando consigo su comportamiento cuadratico
+
+Complejidad punto 2: 
+En este caso como en el punto 1 la complejidad es O(n^2) ya que se recorre n veces la lista por el uso de las funciones infolista()
+y longLista(), cabe resaltar que la función anxlista tiene implicaciones en la complejidad del algoritmo al recorrer la lista ans, sin embargo, no cambia 
+el comportamiento cuadratico de la función, por lo que la complejidad se conserva O(n^2)
+*/
+
 #include "lista.h"
 
-
+/**/
 // Punto 1
 int contarOcurrencias(Lista &l, int v)
 {
     int cont = 0;
-    for (int i = 1; i <= l.longLista(); i++)
+    int size = l.longLista();
+    for (int i = 1; i <= size; i++)
     {
         if (l.infoLista(i) == v)
         {
@@ -22,9 +35,10 @@ Lista obtenerMenores(Lista &l, int v)
     Lista ans;
     for (int i = 1; i <= l.longLista(); i++)
     {
-        if (l.infoLista(i) < v)
+        int num = l.infoLista(i);
+        if (num < v)
         {
-            ans.anxLista(l.infoLista(i));
+            ans.anxLista(num);
         }
     }
     return ans;
