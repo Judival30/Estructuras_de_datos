@@ -1,5 +1,7 @@
 /*
 Estructuras de datos - tarea5 - punto 1 - 2
+Juan Diego Valencia Alomia 
+code: 8977467
 
 Para el desarrollo de este punto se escogió la implementación creada por el docente Carlos Ramirez de una lista simple, y se implementaron las funciones
 sin modificar la interfaz del TAD:
