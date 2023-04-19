@@ -1,5 +1,9 @@
 /*
 Estructuras de datos - tarea5 - punto 1 - 2
+
+Para el desarrollo de este punto se escogió la implementación creada por el docente Carlos Ramirez de una lista simple, y se implementaron las funciones
+sin modificar la interfaz del TAD:
+
 Complejidad punto 1: 
 En este caso la complejidad es O(n^2) ya que se llama a función longLista() que tiene complejidad n y posteriormente se llama
 a la función infolista() que tiene complejidad n, por lo que se recorre la lista n veces, dando consigo su comportamiento cuadratico
