@@ -360,6 +360,38 @@ void BigInteger::product(BigInteger &est)
     num = tmp;
     sign *= est.getSign();
 }
+void BigInteger::pow(BigInteger &est)
+{
+    BigInteger one("1");
+    BigInteger cero("0");
+
+    BigInteger exp = est;
+    BigInteger mult(num, sign);
+
+    BigInteger ans("1");
+    while (cero < exp)
+    {
+
+        ans = ans * mult;
+        ans.printBigInt();
+        exp = exp - one;
+    }
+    string n = ans.toString();
+    int data;
+    num.clear();
+    for (int i = n.size() - 1; i >= 0; i--)
+    {
+        if (n[i] == '-')
+        {
+            sign = -1;
+        }
+        else
+        {
+            data = n[i] - 48;
+            num.push_back(data);
+        }
+    }
+}
 void BigInteger::printBigInt()
 {
     if (sign == -1)
