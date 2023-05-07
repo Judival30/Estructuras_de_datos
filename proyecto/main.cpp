@@ -1,5 +1,5 @@
 /*
- *Implementación del TAD Biginteger
+ *Implementación del TAD BigInteger
  *Autor: Juan Diego Valencia Alomia
  *Fecha: 6/05/23
  *Proyecto final Estructuras de datos 2023-1
