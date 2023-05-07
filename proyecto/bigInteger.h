@@ -25,8 +25,7 @@ public:
     void substract(BigInteger &est);
     void product(BigInteger &est);
     void quotient(BigInteger &est);
-    void remainder(BigInteger &est);
-    void remainder(BigInteger &est);
+    void remainder(BigInteger &est);  
     void pow(BigInteger &est);
 
     // Sobrecargas de los operadores
