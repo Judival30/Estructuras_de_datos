@@ -371,9 +371,7 @@ void BigInteger::pow(BigInteger &est)
     BigInteger ans("1");
     while (cero < exp)
     {
-
         ans = ans * mult;
-        ans.printBigInt();
         exp = exp - one;
     }
     string n = ans.toString();
