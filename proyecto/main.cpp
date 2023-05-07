@@ -1,3 +1,10 @@
+/*
+ *Implementación del TAD Biginteger
+ *Autor: Juan Diego Valencia Alomia
+ *Fecha: 6/05/23
+ *Proyecto final Estructuras de datos 2023-1
+ 
+ */
 #include "bigInteger.h"
 #include <iostream>
 #include <vector>
