@@ -1,5 +1,7 @@
 #include "bigInteger.h"
-
+BigInteger::BigInteger()
+{
+}
 BigInteger::BigInteger(string n)
 {
     int data;
@@ -37,6 +39,28 @@ int BigInteger::getSign()
     return sign;
 }
 
+bool BigInteger::operator<(BigInteger &est)
+{
+    bool ans;
+
+    if (num.size() == est.sizeInt())
+    {
+        int k = num.size() - 1;
+        while (num[k] == est.infoNum(k))
+            k--;
+
+        if (sign == 1)
+            ans = num[k] < est.infoNum(k);
+        else
+            ans = num[k] > est.infoNum(k);
+    }
+    if (num.size() != est.sizeInt())
+        ans = num.size() < est.sizeInt();
+    if (sign != est.getSign())
+        ans = sign < est.getSign();
+
+    return ans;
+}
 // Funciones Modificadoras
 BigInteger BigInteger::operator+(BigInteger &est)
 {
@@ -53,10 +77,21 @@ BigInteger BigInteger::operator+(BigInteger &est)
     for (int i = 0; i < size; i++)
     {
         sum = save - subs;
-        if (i < num.size())
-            sum += num[i] * sign;
-        if (i < est.sizeInt())
-            sum += est.infoNum(i) * est.getSign();
+        if (sign != est.getSign())
+        {
+            if (i < num.size())
+                sum += num[i] * sign;
+            if (i < est.sizeInt())
+                sum += est.infoNum(i) * est.getSign();
+        }
+        else
+        {
+            if (i < num.size())
+                sum += num[i];
+            if (i < est.sizeInt())
+                sum += est.infoNum(i);
+        }
+
         if (sum < 0)
         {
             sum += 10;
@@ -66,6 +101,7 @@ BigInteger BigInteger::operator+(BigInteger &est)
         {
             subs = 0;
         }
+
         tmp.push_back(sum % 10);
         save = sum / 10;
     }
@@ -79,14 +115,18 @@ BigInteger BigInteger::operator+(BigInteger &est)
         j--;
     }
     int s;
-    if (num.size() > est.sizeInt())
+
+    if (sign != est.getSign())
     {
-        s = sign;
+        BigInteger n1(num, sign);
+        if (n1 < est)
+            s = est.getSign();
+
+        else
+            s = sign;
     }
     else
-    {
-        s = est.getSign();
-    }
+        s = sign;
 
     return BigInteger(tmp, s);
 }
@@ -105,11 +145,24 @@ BigInteger BigInteger::operator-(BigInteger &est)
     }
     for (int i = 0; i < size; i++)
     {
+
         sum = save - subs;
-        if (i < num.size())
-            sum += num[i] * sign;
-        if (i < est.sizeInt())
-            sum -= est.infoNum(i) * est.getSign();
+
+        if (sign != est.getSign())
+        {
+            if (i < num.size())
+                sum += num[i] * sign;
+            if (i < est.sizeInt())
+                sum -= est.infoNum(i) * est.getSign();
+        }
+        else
+        {
+            if (i < num.size())
+                sum += num[i];
+            if (i < est.sizeInt())
+                sum -= est.infoNum(i);
+        }
+
         if (sum < 0)
         {
             sum += 10;
@@ -119,6 +172,7 @@ BigInteger BigInteger::operator-(BigInteger &est)
         {
             subs = 0;
         }
+
         tmp.push_back(sum % 10);
         save = sum / 10;
     }
@@ -132,14 +186,18 @@ BigInteger BigInteger::operator-(BigInteger &est)
         j--;
     }
     int s;
-    if (num.size() > est.sizeInt())
+
+    if (sign != est.getSign())
     {
-        s = sign;
+        BigInteger n1(num, sign);
+        if (n1 < est)
+            s = est.getSign();
+
+        else
+            s = sign;
     }
     else
-    {
-        s = est.getSign();
-    }
+        s = sign;
 
     return BigInteger(tmp, s);
 }
@@ -166,19 +224,17 @@ BigInteger BigInteger::operator*(BigInteger &est)
         tmp.pop_back();
         j--;
     }
-    string ans;
+    int s = 1;
     if (sign * est.getSign() < 0)
-        ans += "-";
+        s = -1;
 
-    for (int i = tmp.size() - 1; i >= 0; i--)
-        ans += tmp[i] + 48;
-
-    return BigInteger(ans);
+    return BigInteger(tmp, s);
 }
 
 void BigInteger::add(BigInteger &est)
 {
     int size, sum, save = 0, subs = 0;
+    vector<int> tmp;
     if (num.size() < est.sizeInt())
     {
         size = est.sizeInt();
@@ -190,10 +246,21 @@ void BigInteger::add(BigInteger &est)
     for (int i = 0; i < size; i++)
     {
         sum = save - subs;
-        if (i < num.size())
-            sum += num[i] * sign;
-        if (i < est.sizeInt())
-            sum += est.infoNum(i) * est.getSign();
+        if (sign != est.getSign())
+        {
+            if (i < num.size())
+                sum += num[i] * sign;
+            if (i < est.sizeInt())
+                sum += est.infoNum(i) * est.getSign();
+        }
+        else
+        {
+            if (i < num.size())
+                sum += num[i];
+            if (i < est.sizeInt())
+                sum += est.infoNum(i);
+        }
+
         if (sum < 0)
         {
             sum += 10;
@@ -203,18 +270,27 @@ void BigInteger::add(BigInteger &est)
         {
             subs = 0;
         }
-        num[i] = sum % 10;
+
+        tmp.push_back(sum % 10);
         save = sum / 10;
     }
     if (save != 0)
-        num.push_back(save);
+        tmp.push_back(save);
 
-    int j = num.size() - 1;
-    while (j > 0 && num[j] == 0)
+    int j = tmp.size() - 1;
+    while (j > 0 && tmp[j] == 0)
     {
-        num.pop_back();
+        tmp.pop_back();
         j--;
     }
+
+    if (sign != est.getSign())
+    {
+        BigInteger n1(num, sign);
+        if (n1 < est)
+            sign = est.getSign();
+    }
+    num = tmp;
 }
 
 void BigInteger::substract(BigInteger &est)
