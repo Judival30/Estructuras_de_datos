@@ -20,6 +20,8 @@ int main()
     BigInteger n5("1000");
     BigInteger n6("21");
     BigInteger n7("-65");
+    BigInteger n8("2");
+    BigInteger n9("5");
 
     BigInteger n3("");
     // Suma
@@ -27,7 +29,7 @@ int main()
     n3 = n1 + n2;
     n3.printBigInt();
     printf("Suma por ref:\n");
-    n1.add(n4);
+    n1.add(n2);
     n1.printBigInt();
 
     // Resta
@@ -45,5 +47,8 @@ int main()
     printf("Producto por ref:\n");
     n6.product(n7);
     n6.printBigInt();
+    printf("Exponente por ref:\n");
+    n8.pow(n9);
+    n8.printBigInt();
     return 0;
 }
