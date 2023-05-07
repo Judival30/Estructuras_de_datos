@@ -17,7 +17,6 @@ public:
     // Constructores
     BigInteger();
     BigInteger(string n);
-    BigInteger(BigInteger &n);
     BigInteger(vector<int> n, int s);
 
     // Operaciones que cambían el actual
