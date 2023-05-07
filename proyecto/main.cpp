@@ -15,7 +15,7 @@ using namespace std;
 int main()
 {
     BigInteger n1("17");
-    BigInteger n2("-57");
+    BigInteger n2("50");
     BigInteger n4("-8");
     BigInteger n5("1000");
     BigInteger n6("21");
