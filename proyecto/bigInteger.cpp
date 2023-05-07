@@ -24,11 +24,7 @@ BigInteger::BigInteger(vector<int> n, int s)
     num = n;
     sign = s;
 }
-BigInteger::BigInteger(BigInteger &n)
-{
-    this->num = num;
-    this->sign = sign;
-}
+
 // Funciones que se usarán con el fin de mantener el princio de los TAD
 int BigInteger::sizeInt()
 {
