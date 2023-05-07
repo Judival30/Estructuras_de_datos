@@ -39,7 +39,15 @@ int BigInteger::getSign()
 {
     return sign;
 }
-
+string BigInteger::toString()
+{
+    string ans;
+    if (sign == -1)
+        ans += "-";
+    for (int i = num.size() - 1; i >= 0; i--)
+        ans += num[i] + 48;
+    return ans;
+}
 bool BigInteger::operator<(BigInteger &est)
 {
     bool ans;
@@ -360,6 +368,7 @@ void BigInteger::product(BigInteger &est)
     num = tmp;
     sign *= est.getSign();
 }
+
 void BigInteger::pow(BigInteger &est)
 {
     BigInteger one("1");
