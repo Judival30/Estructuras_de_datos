@@ -1,3 +1,18 @@
+/*
+Name: Juan Diego Valencia
+code: 8977467
+tarea6 - Estructuras de datos - 2023-1
+
+Complejidad computacional:
+Este programa tiene una complejidad cuadratica O(n^2), ya que en un primer instante leerá todas las instrucciones ingresadas (d), para posteriormente realizar
+los cambios correspondientes a la prioridad de los pacientes que ingresan con la E, para esto se recorre la lista que representa la cola con el fin de encontrar
+el iterador y poder borrar el valor. Por esta razón tiene una complejidad O(n^2)
+
+pd:
+(profe yo se que se puede lograr una complejidad lineal con los mapas, pero no tuve el tiempo de poder volver a retomar el problema, pido disculpas y espero 
+que esto no tenga tanta repercusion en la nota, gracias)
+
+*/
 #include <iostream>
 #include <list>
 #include <vector>
