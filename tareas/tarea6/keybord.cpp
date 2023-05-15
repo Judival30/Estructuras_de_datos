@@ -1,11 +1,21 @@
+/*
+Name: Juan Diego Valencia
+code: 8977467
+tarea6 - Estructuras de datos - 2023-1
+
+Complejidad computacional:
+Este programa tiene una complejidad lineal O(n), ya que recorre la linea de texto ingresada y realiza los cambios al presionar Inicio y Fin,
+haciendo todo su proceso en un ciclo for.
+
+*/
 #include <iostream>
 #include <list>
 
 using namespace std;
 
-void printLista(const list<char> &l)
+void printLista(list<char> &l)
 {
-    for (auto pos = l.begin(); pos != l.end(); pos++)
+    for (list<char>::iterator pos = l.begin(); pos != l.end(); pos++)
     {
         cout << *pos;
     }
@@ -40,7 +50,7 @@ int main()
 
             else if (flagFront)
             {
-                auto it = ans.begin();
+                list<char>::iterator it = ans.begin();
                 advance(it, pos);
                 ans.insert(it, n[i]);
                 pos++;
