@@ -1,3 +1,14 @@
+/*
+Name: Juan Diego Valencia
+code: 8977467
+tarea6 - Estructuras de datos - 2023-1
+
+Complejidad computacional:
+Este programa tiene una complejidad computacional lineal O(n), siendo n el tamaño de la pila que se desea construir, ya que el programa comprueba
+que si la combinación que se ingresó puede lograrse a partir de la fila ordenada, haciendo las modificaciones necesarias y posibles para encontrar si 
+es posible, esto se revisa al chequear si la pila esta o no vacía.
+
+*/
 #include <iostream>
 #include <stack>
 #include <vector>
