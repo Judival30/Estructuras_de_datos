@@ -17,11 +17,11 @@ using namespace std;
 void compare(list<string> &w, list<vector<char>> &l)
 {
 
-    for (auto letter = l.begin(); letter != l.end(); letter++)
+    for (list<vector<char>>::iterator letter = l.begin(); letter != l.end(); letter++)
     {
         int numW = 0;
         vector<char> tmp = *letter;
-        for (auto word = w.begin(); word != w.end(); word++)
+        for (list<string>::iterator word = w.begin(); word != w.end(); word++)
         {
             string p = *word;
             if (tmp.size() >= p.size())
