@@ -1,3 +1,12 @@
+/*
+Name: Juan Diego Valencia
+code: 8977467
+tarea6 - Estructuras de datos - 2023-1
+
+Complejidad computacional:
+Este programa tiene una complejidad computacional O(n*m), siendo n la cantidad de conjuntos de letras que se le ingresan, y m la cantidad de palabras que 
+se desean comprobar, ya que el programa compara cada conjunto de letras con la totalidad de las palabras.
+*/
 #include <iostream>
 #include <list>
 #include <vector>
