@@ -1,3 +1,8 @@
+/*
+Autor: Juan Diego Valencia Alomia
+26/05/23
+tarea7 - Estructuras de datos - 2023-1
+*/
 #include <iostream>
 #include <stack>
 #include <list>
