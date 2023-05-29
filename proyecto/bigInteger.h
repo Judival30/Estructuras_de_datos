@@ -13,19 +13,22 @@ private:
     vector<int> num;
     int sign;
 
+    BigInteger abso();
+
 public:
     // Constructores
     BigInteger();
-    BigInteger(string n);
-    BigInteger(vector<int> n, int s);
+    BigInteger(const string &n);
+    BigInteger(const vector<int> &n, int s);
+    BigInteger(const BigInteger &est);
 
     // Operaciones que cambían el actual
     void add(BigInteger &est);
     void substract(BigInteger &est);
     void product(BigInteger &est);
     void quotient(BigInteger &est);
-    void remainder(BigInteger &est);  
-    void pow(BigInteger &est);
+    void remainder(BigInteger &est);
+    void pow(int est);
 
     // Sobrecargas de los operadores
     BigInteger operator+(BigInteger &est);
@@ -42,10 +45,9 @@ public:
     int sizeInt();
     int infoNum(int v);
     int getSign();
-    void printBigInt();
 
-    BigInteger sumarListaValores(list<BigInteger> &n);
-    BigInteger MultiplicarListaValores(list<BigInteger> &n);
+    static BigInteger sumarListaValores(list<BigInteger> &n);
+    static BigInteger multiplicarListaValores(list<BigInteger> &n);
 };
 
 #endif

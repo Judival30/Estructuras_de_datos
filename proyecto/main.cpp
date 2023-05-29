@@ -1,10 +1,11 @@
 /*
- *Implementación del TAD BigInteger
+ *Implementación del TAD Biginteger
  *Autor: Juan Diego Valencia Alomia
  *Fecha: 6/05/23
  *Proyecto final Estructuras de datos 2023-1
- 
+
  */
+
 #include "bigInteger.h"
 #include <iostream>
 #include <vector>
@@ -14,41 +15,105 @@ using namespace std;
 
 int main()
 {
-    BigInteger n1("17");
-    BigInteger n2("50");
-    BigInteger n4("-8");
-    BigInteger n5("1000");
-    BigInteger n6("21");
-    BigInteger n7("-65");
-    BigInteger n8("2");
-    BigInteger n9("5");
+    int casos, n, i;
+    string v1, v2, aux;
+    BigInteger a("0"), b("0"), c("0");
+    BigInteger cero("0");
 
-    BigInteger n3("");
-    // Suma
-    printf("Suma con +:\n");
-    n3 = n1 + n2;
-    n3.printBigInt();
-    printf("Suma por ref:\n");
-    n1.add(n2);
-    n1.printBigInt();
+    cin >> casos;
+    cin.ignore();
+    while (casos--)
+    {
+        getline(cin, v1);
+        getline(cin, v2);
+        a = BigInteger(v1);
+        b = BigInteger(v2);
+        c = a + b;
+        cout << a.toString() << " + " << b.toString() << " = " << c.toString() << endl;
+        c = a - b;
+        cout << a.toString() << " - " << b.toString() << " = " << c.toString() << endl;
+        c = a * b;
+        cout << a.toString() << " * " << b.toString() << " = " << c.toString() << endl;
 
-    // Resta
-    printf("Resta con - :\n");
-    n3 = n5 - n2;
-    n3.printBigInt();
-    printf("Resta por ref:\n");
-    n5.substract(n2);
-    n5.printBigInt();
+        if (cero < a && cero < b)
+        {
+            c = a % b;
+            cout << a.toString() << " % " << b.toString() << " = " << c.toString() << endl;
+            c = a / b;
+            cout << a.toString() << " / " << b.toString() << " = " << c.toString() << endl;
+        }
 
-    // Multiplicación
-    printf("Producto con * :\n");
-    n3 = n6 * n7;
-    n3.printBigInt();
-    printf("Producto por ref:\n");
-    n6.product(n7);
-    n6.printBigInt();
-    printf("Exponente por ref:\n");
-    n8.pow(n9);
-    n8.printBigInt();
+        if (a < b)
+            cout
+                << a.toString() << " < " << b.toString() << endl;
+        else if (b < a)
+            cout
+                << b.toString() << " < " << a.toString() << endl;
+        else if (a == b)
+            cout << a.toString() << " == " << b.toString() << endl;
+        cout << a.toString() << " ** 10 = ";
+        a.pow(10);
+        cout << a.toString() << endl;
+    }
+
+    cin >> casos;
+    cin.ignore();
+    while (casos--)
+    {
+        getline(cin, v1);
+        a = BigInteger(v1);
+        cout << a.toString() << endl;
+        getline(cin, v2);
+        b = BigInteger(v2);
+        a.add(b);
+        cout << a.toString() << endl;
+        getline(cin, v2);
+        b = BigInteger(v2);
+        a.substract(b);
+        cout << a.toString() << endl;
+        getline(cin, v2);
+        b = BigInteger(v2);
+        a.product(b);
+        cout << a.toString() << endl;
+        getline(cin, v2);
+        b = BigInteger(v2);
+
+        if (cero < a && cero < b)
+        {
+            a.quotient(b);
+            cout << a.toString() << endl;
+        }
+        cin >> n;
+        cin.ignore();
+        a.pow(n);
+        cout << a.toString() << endl;
+        getline(cin, v2);
+        b = BigInteger(v2);
+        if (cero < a && cero < b)
+        {
+            a.remainder(b);
+            cout << a.toString() << endl;
+        }
+    }
+
+    cin >> casos;
+
+    while (casos--)
+    {
+        cin >> n;
+        cin.ignore();
+        list<BigInteger> l;
+        for (i = 0; i < n; ++i)
+        {
+            getline(cin, aux);
+            l.push_back(BigInteger(aux));
+        }
+
+        a = BigInteger::sumarListaValores(l);
+        b = BigInteger::multiplicarListaValores(l);
+        cout << a.toString() << endl;
+        cout << b.toString() << endl;
+    }
+
     return 0;
 }
